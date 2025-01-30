@@ -18,8 +18,10 @@ class Fraction(object):
         pass
 
     def gcd(a, b):
-        #TODO
-        pass
+        if a == 0 or b == 0:
+            return 0
+        
+        
 
     def get_numerator(self):
         #TODO
