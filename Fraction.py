@@ -18,6 +18,13 @@ class Fraction(object):
         if a == 0 or b == 0:
             return 0
         
+        divisor = min(a, b)
+        while divisor:
+            if a % divisor == 0 and b % divisor == 0:
+                break
+            divisor -= 1
+        return divisor
+        
     def get_numerator(self):
         return self.numerator
 
