@@ -32,5 +32,15 @@ class Fraction(object):
         return self.denominator
 
     def get_fraction(self):
-        #TODO
-        pass
+        divisor = self.gcd(int(self.get_numerator()), self.get_denominator())
+
+        if divisor == 0:  
+            return "0" if self.get_numerator() == 0 else f"{self.get_numerator()}/{self.get_denominator()}"
+
+        simplifiednumerator = int(self.get_numerator() / divisor)
+        simplifieddenominator = int(self.get_denominator() / divisor)
+        
+        if self.get_denominator() == 1:
+            return str(simplifiednumerator)
+        
+        return f"{simplifiednumerator}/{simplifieddenominator}"
