@@ -8,7 +8,7 @@ class Fraction(object):
             self.numerator = numerator
             self.denominator = denominator
             if self.denominator == 0:
-                raise ValueError("Denominator cannot be 0")
+                raise ZeroDivisionError("Denominator cannot be 0")
             
         # Handle single value inputs, i.e. rational number or strings
         # Rationale number input    
@@ -20,20 +20,20 @@ class Fraction(object):
             fraction = numerator.strip() # Remove any unecessary white spaces
             # Find the / that divides numerator and denominator, assign values after
             divisionIndex = 0
-            for digit in numerator:
+            for digit in fraction:
                 if digit == "/":
                     divisionIndex = digit.index()
                     
-            self.numerator = numerator[:divisionIndex]
-            self.denominator = numerator[divisionIndex:]
+            self.numerator = fraction[:divisionIndex]
+            self.denominator = fraction[divisionIndex:]
             if self.denominator == 0:
-                raise ValueError("Denominator cannot be 0")
+                raise ZeroDivisionError("Denominator cannot be 0")
                 
         # Handle remaining invalid inputs
         else:
             raise TypeError("Invalid input, refer to instructions for proper syntax")
         
-        
+    @staticmethod
     def gcd(a, b):
         if a == 0 or b == 0:
             return 0
@@ -46,7 +46,7 @@ class Fraction(object):
         return divisor
         
     def get_numerator(self):
-        return self.numerator
+        return str(self.numerator)
 
     def get_denominator(self):
         return self.denominator
