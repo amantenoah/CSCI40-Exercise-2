@@ -1,33 +1,35 @@
 class Fraction(object):
 
     def __init__(self, numerator, denominator):
-        self.numerator = int(numerator)
-        self.denominator = int(denominator)
+        self.numerator = numerator
+        self.denominator = denominator
 
     def __init__(self, fraction):
-        numerator = int(fraction[0])
-        denominator = int(fraction[2])
+        numerator = fraction[0]
+        denominator = fraction[2]
         self.fraction = numerator/denominator
 
     def __init__(self, number):
-        numerator = int(number)
+        numerator = number
         denominator = 1
         self.fraction = numerator/denominator
                 
-    def __init__(self, fraction):
-        pass
-
     def gcd(a, b):
-        #TODO
-        pass
-
+        if a == 0 or b == 0:
+            return 0
+        
+        divisor = min(a, b)
+        while divisor:
+            if a % divisor == 0 and b % divisor == 0:
+                break
+            divisor -= 1
+        return divisor
+        
     def get_numerator(self):
-        #TODO
-        pass
+        return self.numerator
 
     def get_denominator(self):
-        #TODO
-        pass
+        return self.denominator
 
     def get_fraction(self):
         #TODO
