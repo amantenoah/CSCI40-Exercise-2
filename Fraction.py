@@ -1,7 +1,20 @@
 class Fraction(object):
 
-    def __init__(self, numerator=0, denominator=1):
-        #TODO
+    def __init__(self, numerator, denominator):
+        self.numerator = int(numerator)
+        self.denominator = int(denominator)
+
+    def __init__(self, fraction):
+        numerator = int(fraction[0])
+        denominator = int(fraction[2])
+        self.fraction = numerator/denominator
+
+    def __init__(self, number):
+        numerator = int(number)
+        denominator = 1
+        self.fraction = numerator/denominator
+                
+    def __init__(self, fraction):
         pass
 
     def gcd(a, b):
