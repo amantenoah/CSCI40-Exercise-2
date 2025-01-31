@@ -38,12 +38,9 @@ class Fraction(object):
         if a == 0 or b == 0:
             return 0
         
-        divisor = min(a, b)
-        while divisor:
-            if a % divisor == 0 and b % divisor == 0:
-                break
-            divisor -= 1
-        return divisor
+        while b:
+            a, b = b, a % b  # Find the GCD by Euclidean Algorithm
+        return a
         
     def get_numerator(self):
         return str(self.numerator)
