@@ -37,8 +37,6 @@ class Fraction(object):
                 
         # Handle remaining invalid inputs
         else:
-            #raise TypeError("Invalid input, refer to instructions for proper syntax")
-            print("Invalid input, refer to instructions for proper syntax")
             self.numerator = 0
             self.denominator = 1
         
@@ -53,11 +51,11 @@ class Fraction(object):
         
     def get_numerator(self):
         divisor = Fraction.gcd(int(self.numerator), int(self.denominator))       
-        return str(int(self.numerator)/divisor)
+        return str(int(self.numerator/divisor))
 
     def get_denominator(self):
         divisor = Fraction.gcd(int(self.numerator), int(self.denominator))    
-        return str(int(self.denominator)/divisor)
+        return str(int(self.denominator/divisor))
 
     def get_fraction(self):
         if self.numerator == 0:
