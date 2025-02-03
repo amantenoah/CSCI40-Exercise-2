@@ -22,16 +22,25 @@ class Fraction(object):
             divisionIndex = 0
             for digit in fraction:
                 if digit == "/":
-                    divisionIndex = digit.index()
+                    divisionIndex = fraction.index(digit)
                     
             self.numerator = fraction[:divisionIndex]
-            self.denominator = fraction[divisionIndex:]
-            if self.denominator == 0:
+            self.denominator = fraction[divisionIndex + 1:]
+            try:
+                self.numerator = int(self.numerator)
+                self.denominator = int(self.denominator)
+            except ValueError:
+                self.numerator = 0
+                self.denominator = 1
+            if self.denominator == "0":
                 raise ZeroDivisionError("Denominator cannot be 0")
                 
         # Handle remaining invalid inputs
         else:
-            raise TypeError("Invalid input, refer to instructions for proper syntax")
+            #raise TypeError("Invalid input, refer to instructions for proper syntax")
+            print("Invalid input, refer to instructions for proper syntax")
+            self.numerator = 0
+            self.denominator = 1
         
     @staticmethod
     def gcd(a, b):
@@ -43,11 +52,14 @@ class Fraction(object):
         return a
         
     def get_numerator(self):
-        return str(self.numerator)
+        divisor = Fraction.gcd(int(self.numerator), int(self.denominator))       
+        return str(int(self.numerator)/divisor)
 
     def get_denominator(self):
-        return self.denominator
+        divisor = Fraction.gcd(int(self.numerator), int(self.denominator))    
+        return str(int(self.denominator)/divisor)
 
     def get_fraction(self):
-        #TODO
-        pass
+        if self.numerator == 0:
+            return "0"
+        return (self.get_numerator() + "/" + self.get_denominator())
